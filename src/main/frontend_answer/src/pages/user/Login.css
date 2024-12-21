@@ -1,0 +1,31 @@
+
+.logintable{
+  margin-top: 50px;
+  width: 50%;
+  /* border: 1px solid red; */
+
+}
+
+.logintable input{
+  /* width: 300px; */
+
+  /* 아래는 테스트중 040808 */
+  width: 100%;  
+  /* border: 1px solid red; */
+
+}
+
+.loginbtn-div{
+  margin-top: 50px;
+  text-align: center;
+}
+
+.login-btn{
+  font-size: 18px;
+  border: 1px solid lightgrey;
+  padding: 11px;
+  /* width: 140px; */
+
+    /* 아래는 테스트중 040808 */
+  width: 50%;
+}

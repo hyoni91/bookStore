@@ -1,0 +1,32 @@
+
+
+.search-content{
+  display: flex;
+  gap: 10px;
+  justify-content: right;
+  margin-bottom: 20px;
+}
+
+.searchinput{
+  width: 190px;
+}
+
+.searchUser-btn{
+  border: 1px solid ;
+  width: 80px; 
+}
+
+.searchUser-table{
+  margin: auto;
+  width: 100%;
+}
+
+.searchUser-table > thead{
+  background-color: black;
+  color: white;
+  border-bottom: 3px double grey;
+}
+
+.searchUser-table > tbody > tr:nth-child(odd){
+  background-color: rgb(233, 233, 233);
+}
