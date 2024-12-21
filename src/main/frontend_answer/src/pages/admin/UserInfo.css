@@ -1,0 +1,31 @@
+
+.userInfo-content > div > input{
+  width: 350px;
+  margin-bottom: 10px;
+}
+
+.userInfo-content > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+
+.userInfo-content > div:nth-child(1){
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.userInfo-btn{
+  text-align: center;
+  display: block;
+  margin-top: 20px;
+}
+
+.userInfo-btn > button{
+  border: 1px solid gray;
+  width: 180px;
+  padding: 10px;
+  margin-right: 5px;
+}

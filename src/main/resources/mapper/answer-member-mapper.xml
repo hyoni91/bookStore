@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="answerMemberMapper">
+    <resultMap id="member" type="com.green.Shop_answer.member.vo.MemberVO">
+        <id column="MEM_ID" property="memId" />
+        <result column="MEM_PW" property="memPw" />
+        <result column="MEM_NAME" property="memName" />
+        <result column="MEM_TEL" property="memTel" />
+        <result column="POST" property="post" />
+        <result column="MEM_ADDR" property="memAddr" />
+        <result column="ADDR_DETAIL" property="addrDetail" />
+        <result column="MEM_EMAIL" property="memEmail" />
+        <result column="MEM_ROLE" property="memRole" />
+        <collection property="itemList" resultMap="answerItemMapper.item" />
+    </resultMap>
+
+
+
+    <insert id="join">
+        INSERT INTO ANSWER_SHOP_MEMBER(
+        MEM_ID
+        ,MEM_PW
+        ,MEM_NAME
+        ,MEM_TEL
+        ,POST
+        ,MEM_ADDR
+        ,ADDR_DETAIL
+        ,MEM_EMAIL
+        ) VALUES(
+        #{memId}
+        ,#{memPw}
+        ,#{memName}
+        ,#{memTel}
+        ,#{post}
+        ,#{memAddr}
+        ,#{addrDetail}
+        ,#{memEmail}
+        )
+    </insert>
+
+    <!-- id 중복 체크 -->
+    <select id="isDuplicate" resultType="String">
+        SELECT
+        MEM_ID
+        FROM ANSWER_SHOP_MEMBER
+        WHERE MEM_ID = #{memId}
+    </select>
+
+
+    <!-- 로그인 -->
+    <select id="login" resultMap="member">
+        SELECT
+        MEM_ID
+        ,MEM_Name
+        ,MEM_PW
+        ,MEM_ROLE
+        FROM ANSWER_SHOP_MEMBER
+        WHERE MEM_ID = #{memId}
+        AND MEM_PW = #{memPw}
+    </select>
+
+    <select id="memselect" resultMap="member">
+        SELECT * FROM ANSWER_SHOP_MEMBER
+        <if test='searchValue != null and !searchValue.equals("")'>
+            WHERE MEM_ID LIKE CONCAT ('%',#{searchValue},'%')
+        </if>
+    </select>
+
+    <select id="userInfo" resultMap="member">
+        SELECT * FROM ANSWER_SHOP_MEMBER
+        WHERE MEM_ID = #{memID}
+    </select>
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

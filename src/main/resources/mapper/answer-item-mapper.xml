@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="answerItemMapper">
+
+    <resultMap id="item" type="com.green.Shop_answer.item.vo.ItemVO">
+        <id column="ITEM_CODE" property="itemCode" />
+        <result column="ITEM_NAME" property="itemName" />
+        <result column="ITEM_PRICE" property="itemPrice" />
+        <result column="ITEM_INTRO" property="itemIntro" />
+        <result column="ITEM_STOCK" property="itemStock" />
+        <result column="ITEM_STATUS" property="itemStatus" />
+        <result column="CATE_CODE" property="cateCode" />
+        <association property="category" resultMap="category" />
+        <collection property="imgList" resultMap="img"/>
+    </resultMap>
+
+    <resultMap id="category" type="com.green.Shop_answer.item.vo.CategoryVO">
+        <id column="CATE_CODE" property="cateCode" />
+        <result column="CATE_NAME" property="cateName" />
+    </resultMap>
+
+    <resultMap id="img" type="com.green.Shop_answer.item.vo.ImgVO">
+        <id column="IMG_CODE" property="imgCode"/>
+        <result column="ORIGIN_FILE_NAME" property="originFileName"/>
+        <result column="ATTACHED_FILE_NAME" property="attachedFileName"/>
+        <result column="IS_MAIN" property="isMain"/>
+        <result column="ITEM_CODE" property="itemCode"/>
+    </resultMap>
+
+
+    <!-- 상품 목록 화면 -->
+    <select id="itemList" resultMap="item">
+        SELECT
+        I.ITEM_CODE
+        , ITEM_NAME
+        , ITEM_STATUS
+        , ITEM_PRICE
+        , CATE_NAME
+        , IS_MAIN
+        , ATTACHED_FILE_NAME
+        , IMG_CODE
+        FROM answer_shop_item I ,  ANSWER_ITEM_CATEGORY C , answer_item_img AS IMG
+        WHERE I.CATE_CODE = C.CATE_CODE AND IMG.ITEM_CODE = I.ITEM_CODE
+        AND IS_MAIN = 'Y';
+
+    </select>
+
+    <!-- 상품 상세 조회 -->
+    <select id="itemDetail" resultMap="item">
+        SELECT I.ITEM_CODE
+            ,ITEM_NAME
+            ,ITEM_INTRO
+            ,ITEM_PRICE
+            ,CATE_NAME
+            ,IS_MAIN
+            ,ATTACHED_FILE_NAME
+            ,IMG_CODE
+        FROM answer_shop_item I ,  ANSWER_ITEM_CATEGORY C , answer_item_img AS IMG
+        WHERE I.CATE_CODE = C.CATE_CODE AND IMG.ITEM_CODE = I.ITEM_CODE
+        AND I.ITEM_CODE = #{itemCode}
+    </select>
+
+    <!-- 카테고리별 상품 목록 -->
+    <select id="cate1List" resultMap="item">
+        SELECT
+        I.ITEM_CODE
+        ,ITEM_NAME
+        ,ITEM_STATUS
+        ,ITEM_PRICE
+        ,CATE_NAME
+        ,IS_MAIN
+        ,ATTACHED_FILE_NAME
+        ,IMG_CODE
+        FROM answer_shop_item I ,  ANSWER_ITEM_CATEGORY C , answer_item_img IMG
+        WHERE I.CATE_CODE = C.CATE_CODE AND IMG.ITEM_CODE = I.ITEM_CODE
+        AND IS_MAIN = 'Y'
+        AND C.CATE_CODE = #{cateNum}
+    </select>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

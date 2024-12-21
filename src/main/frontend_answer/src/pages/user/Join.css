@@ -1,0 +1,64 @@
+
+.joinpage{
+  width: 70%;
+  margin: auto;
+  /* margin-top: 50px; */
+  border-radius: 10px;
+  border: 1px solid rgb(233, 230, 230);
+  padding: 50px 0px;
+  /* background-color: rgb(255, 255, 255); */
+  margin-top: 5%;
+}
+
+.jointable, .logintable{
+  margin: auto;
+  font-size: 18px;
+  color: rgb(71, 71, 71);
+}
+
+.input-size{
+  width: 250px;
+}
+
+.addr-boxsize  input{
+  margin-bottom: 5px;
+}
+
+.addr-boxsize > td:nth-child(2) >input{
+  width: 200px;
+}
+
+.inputmail-size{
+  width: 200px;
+}
+
+.select-size{
+  width: 200px;
+  padding: 8px;
+  margin-left: 3px;
+  
+}
+
+.btn-div{
+  margin-top: 20px;
+  text-align: center;
+}
+
+.jointable button {
+  margin-left: 10px;
+  width: 80px;
+  padding: 7px;
+  border: 1px solid rgb(204, 203, 203);
+  color: rgb(88, 82, 82);
+}
+
+.jointable button:hover , .btn-div button:hover{
+  background-color: rgb(190, 190, 190);
+}
+
+.btn-div button{
+  padding: 10px;
+  border: 1px solid lightgray;
+  font-size: 18px;
+}
+

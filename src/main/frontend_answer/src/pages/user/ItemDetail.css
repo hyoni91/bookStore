@@ -1,0 +1,52 @@
+
+.detail-header{
+  margin : 25px 0px;
+  display: flex;
+  /* border: 1px solid black; */
+  justify-content: center;
+}
+
+.detail-header > div > img {
+  width: 65%;
+  filter: drop-shadow(5px 5px 5px #9b9b9b);
+}
+
+.detail-intro{
+  /* margin-top: 85px; */
+  /* border: 1px solid red; */
+  align-self: center;
+  
+}
+
+.detail-intro > button{
+  width: 150px;
+  padding: 8px;
+  margin-top: 25px;
+  border: 1px solid lightgray;
+  margin-right: 15px ;
+}
+
+.detail-intro > div {
+  margin: 10px 0px;
+}
+
+.detail-intro > div > input{
+  width: 100px;
+  margin-left: 10px;
+}
+
+.detail-content > h3{
+  margin-top: 30px;
+  text-align: center;
+}
+
+.detail-mainimg{
+  align-self: center;
+  width: 550px;
+}
+
+.detail-footer-img{
+  text-align: center;
+  margin-top: 25px;
+}
+

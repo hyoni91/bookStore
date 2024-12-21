@@ -1,0 +1,46 @@
+
+
+.regItem > div {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+}
+
+.regItem > div{
+  margin-bottom: 15px;
+}
+
+.category-select{
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.regItem > div >span {
+  display: inline-block;
+  /* border: 1px solid red; */
+  width: 150px;
+  padding: 5px;
+  font-size: 1.2rem;
+}
+
+.regItem-btn{
+  margin-top: 35px;
+}
+.regItem-btn > button{
+  padding: 15px;
+  font-size: 1.1rem;
+  border: 1px solid lightgrey;
+
+}
+
+.regItem-input{
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+
+/* 이미지 첨부 css */
+

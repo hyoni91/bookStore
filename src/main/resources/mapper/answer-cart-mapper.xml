@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="answerCartMapper">
+<!--     장바구니 기능 관련 쿼리-->
+        <resultMap id="cart" type="com.green.Shop_answer.cart.vo.CartVO">
+            <id column="CART_CODE" property="cartCode"/>
+            <result column="CART_CNT" property="cartCnt"/>
+            <result column="ITEM_CODE" property="itemCode"/>
+            <result column="MEM_ID" property="memId"/>
+            <result column="CART_DATE" property="cartDate"/>
+            <association property="item" resultMap="answerItemMapper.item" />
+        </resultMap>
+
+
+        <!-- 장바구니 등록 여부 -->
+        <select id="checkCart" resultType="Integer">
+            SELECT CART_CODE
+            FROM answer_shop_cart
+            WHERE ITEM_CODE = #{itemCode}
+            AND MEM_ID = #{memId}
+        </select>
+
+        <!-- 장바구니 수정 -->
+        <update id="update">
+            UPDATE answer_shop_cart
+            SET CART_CNT = CART_CNT+#{cartCnt}
+            ,CART_DATE = NOW()
+            WHERE ITEM_CODE = #{itemCode}
+            AND MEM_ID = #{memId}
+        </update>
+
+        <!-- 장바구니 등록 -->
+        <insert id="cartInsert">
+            INSERT INTO ANSWER_SHOP_CART(
+            CART_CNT
+            ,ITEM_CODE
+            ,MEM_ID
+            )VALUES(
+            #{cartCnt}
+            ,#{itemCode}
+            ,#{memId}
+            )
+         </insert>
+
+
+        <!-- 멤버별 장바구니 -->
+        <select id="cartList" resultMap="cart">
+            SELECT ATTACHED_FILE_NAME, ITEM_NAME , ITEM_PRICE ,CART_CNT, DATE_FORMAT(CART_DATE, '%Y-%m-%d %h:%s') AS CART_DATE, CART_CODE
+            FROM answer_item_img as IMG , answer_shop_item I, ANSWER_SHOP_CART C , answer_shop_member M
+            WHERE C.MEM_ID = M.MEM_ID
+            AND C.ITEM_CODE = I.ITEM_CODE
+            AND IMG.ITEM_CODE = C.ITEM_CODE
+            AND IMG.IS_MAIN = 'Y'
+            AND C.MEM_ID = #{memId};
+        </select>
+
+        <!-- 장바구니 선택삭제 -->
+        <delete id="delete">
+            DELETE FROM answer_shop_cart
+            WHERE CART_CODE IN
+            <foreach collection="cartNumList" item="cartCode" open="(" separator="," close=")">
+                #{cartCode}
+            </foreach>
+        </delete>
+    <!-- 장바구니 삭제 -->
+    <delete id="delete2">
+        DELETE FROM answer_shop_cart
+        WHERE CART_CODE = #{cartCode}
+    </delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
