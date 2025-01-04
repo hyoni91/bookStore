@@ -1,6 +1,6 @@
 
 .joinpage{
-  width: 70%;
+  width: 80%;
   margin: auto;
   /* margin-top: 50px; */
   border-radius: 10px;
@@ -12,28 +12,38 @@
 
 .jointable, .logintable{
   margin: auto;
-  font-size: 18px;
+  font-size: 1em;
+  width: 100%;
   color: rgb(71, 71, 71);
 }
 
+input{
+  width: 86%;
+}
+
 .input-size{
-  width: 250px;
+  /* width: 250px; */
+  width: 40%;
 }
 
 .addr-boxsize  input{
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
+  margin-bottom: 0.8vw;
 }
 
 .addr-boxsize > td:nth-child(2) >input{
-  width: 200px;
+  /* width: 200px; */
+  width: 40%;
 }
 
 .inputmail-size{
-  width: 200px;
+  /* width: 200px; */
+  width: 44%;
 }
 
 .select-size{
-  width: 200px;
+  /* width: 200px; */
+  width: 42%;
   padding: 8px;
   margin-left: 3px;
   
