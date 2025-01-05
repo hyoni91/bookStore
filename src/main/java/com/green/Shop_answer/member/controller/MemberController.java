@@ -14,12 +14,14 @@ import java.util.List;
 @RequestMapping("/api_member")
 public class MemberController {
 
+
     @Resource(name = "memberService")
     private MemberService memberService;
 
     @PostMapping("/join")
     public void join(@RequestBody MemberVO memberVO){
         memberService.join(memberVO);
+
     }
 
     @GetMapping("/idChk/{memId}")
@@ -43,6 +45,7 @@ public class MemberController {
     public List<ItemVO> itemList(){
         return memberService.itemList();
     }
+
 
 
 }
