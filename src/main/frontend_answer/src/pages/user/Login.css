@@ -2,14 +2,12 @@
 .logintable{
   margin-top: 50px;
   width: 50%;
-  /* border: 1px solid red; */
-
 }
+
+
 
 .logintable input{
   /* width: 300px; */
-
-  /* 아래는 테스트중 040808 */
   width: 18vw;  
   /* border: 1px solid red; */
 

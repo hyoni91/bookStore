@@ -21,9 +21,9 @@ const Login = ({setLoginInfo, loginInfo}) => {
   function drawMdalContent(){
   return(
       isLoginSuccess ?  
-    <div>로그인성공😎😎 <br /> 반갑습니다.</div>
+    <div>Success😎😎 <br /> Welcome</div>
     : 
-    <div>로그인실패😭😭 <br /> 아이디나 비밀번호를 확인하세요.</div>
+    <div>again!😭😭 <br /> please check your ID or password</div>
   )
 }
 //로그인후 모달칭 안의 확인 버튼 클릭시 실행되는 내용
@@ -100,17 +100,17 @@ function handleBtn(){
         </colgroup>
         <tbody>
           <tr>
-            <td>아이디</td>
+            <td>ID</td>
             <td><input type='text' name='memId' onChange={(e)=>{changeLoginData(e)}}/></td>
           </tr>
           <tr>
-            <td>비밀번호</td>
+            <td>P.W</td>
             <td><input type='password' name='memPw' onChange={(e)=>{changeLoginData(e)}}/></td>
           </tr>
         </tbody>
       </table>
       <div className='loginbtn-div'>
-        <button type='button' className='login-btn' onClick={()=>{login()}} >로그인하기</button>
+        <button type='button' className='login-btn' onClick={()=>{login()}} >Login</button>
       </div>
       
       
@@ -118,8 +118,8 @@ function handleBtn(){
         loginModal ? <Modal content={()=>{
         return(
         <div>
-          오류😱😱😱😱<br />
-          아이디와 비밀번호는 필수입니다. 
+          😱😱😱😱<br />
+          IDとパスワードを入力してください。 
         </div>
         )
       }} setIsShow={setLoginModal} offBtn={()=>{}} /> : null

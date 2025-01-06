@@ -23,7 +23,7 @@ const DisplayItem = () => {
 
   return (
     <>
-      <div className='item-list-title'>전체 목록</div>
+      <div className='item-list-title'>ALL</div>
       <div className='item-list-div'>
         
         {

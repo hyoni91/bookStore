@@ -106,14 +106,14 @@ const Join = () => {
 
     if(joinData.memId == ''){
       setIsChkId(false)
-      alert('아이디는 필수입력입니다.')
+      alert('IDを入力してください。')
       return;
     }
    
     axios.get(`/api_member/idChk/${joinData.memId}`)
     .then((res)=>{
       const result = res.data;
-      result? alert('이미 사용중인 아이디입니다.'): alert('사용 가능합니다.') 
+      result? alert('すでに使われています。'): alert('使用可能です。') 
         return setIsChkId(true)})
       //회원가입 버튼 여부 (아이디 중복 검사안하면 오류뜨도록 설정했기때문에 주석처리중)
     //   if(!result){
@@ -128,13 +128,13 @@ const Join = () => {
   //회원 가입 버튼 클릭 시 insert쿼리 실행하기
   function join(){
     if(!validResult){
-      alert('입력 데이터를 확인하세요')
+      alert('入力データを確認してください。')
       return ; 
     }
 
     //아이디 중복 검사 했는지 확인
     if(!isChkId){
-      alert('아이디 중복검사를 실행하세요')
+      alert('IDチェックをしてください。')
       return;
     }
 
@@ -153,9 +153,9 @@ const Join = () => {
     function setModalContent(){
     return(
       <div>
-        환영합니다😍 <br />
-        회원가입을 축하합니다.
-        </div>
+        Welcome😍 <br />
+        いらっしゃいませ。
+        </div> 
     )
   }
 
@@ -172,59 +172,59 @@ const Join = () => {
       
         <table className='jointable'>
           <colgroup>
-            <col width={'20%'}/>
+            <col width={'35%'}/>
             <col width={'*'}/>
           </colgroup>
           <tbody>
             <tr>
-              <td>아이디</td>
+              <td>ID</td>
               <td>
                 <input className='input-size' type='text' id='id' name='memId'  required onChange={(e)=>{setIsChkId(false)
                   changeJoinData(e)}}/>
-              <button type='button' onClick={()=>{idChkBtn()}}>중복확인</button>
+              <button type='button' onClick={()=>{idChkBtn()}}>チェック</button>
               <div className='feedback' ref={memId_valid_tag} ></div>
               </td>
             </tr>
             <tr>
-              <td>비밀번호</td>
+              <td>PW</td>
               <td><input type='password'  required name='memPw' onChange={(e)=>{changeJoinData(e)}}/>
               <div className='feedback' ref={memPw_valid_tag}  ></div>
               </td>
             </tr>
             <tr>
-              <td>비밀번호 확인</td>
+              <td>PW(チェック用)</td>
               <td><input type='password'  required name='comfirmPw' onChange={(e)=>{changeJoinData(e)}}/>
               <div className='feedback' ref={confirmPw_valid_tag}  ></div>
               </td>
             </tr>
             <tr>
-              <td>이름</td>
+              <td>名前</td>
               <td>
                 <input type='text'  required name='memName'onChange={(e)=>{changeJoinData(e)}}/>
                 <div className='feedback' ref={memName_valid_tag} ></div>
               </td>
             </tr>
             <tr>
-              <td>핸드폰 번호</td>
-              <td><input type='text'  name='memTel' placeholder='"-"과 함께 입력하세요.' onChange={(e)=>{changeJoinData(e)}}/>
+              <td>携帯電話</td>
+              <td><input type='text'  name='memTel' placeholder='"-"と一緒に入力してください。' onChange={(e)=>{changeJoinData(e)}}/>
               <div className='feedback'  ref={memTel_valid_tag}  ></div>
               </td>
             </tr>
             <tr className='addr-boxsize'>
-              <td>주소</td>
+              <td>住所</td>
               <td>
-                <input type='text' placeholder='우편번호' name='post'  value={joinData.post} readOnly={true} onChange={(e)=>{changeJoinData(e)}} onClick={handleClick} />
-              <button type='button' onClick={handleClick}>검색</button>
+                <input type='text' placeholder='郵便番号' name='post'  value={joinData.post} readOnly={true} onChange={(e)=>{changeJoinData(e)}} onClick={handleClick} />
+              <button type='button' onClick={handleClick}>検索</button>
                 <p>
-                  <input type='text' placeholder='주소' name='memAddr' value={joinData.memAddr} readOnly={true} onChange={(e)=>{changeJoinData(e)}} onClick={handleClick}/>
+                  <input type='text' placeholder='住所' name='memAddr' value={joinData.memAddr} readOnly={true} onChange={(e)=>{changeJoinData(e)}} onClick={handleClick}/>
                   </p>
                 <p>
-                  <input type='text' placeholder='상세주소를 입력해 주세요.' name='addrDetail' onChange={(e)=>{changeJoinData(e)}}/>
+                  <input type='text' placeholder='アパート名などを入力してください。' name='addrDetail' onChange={(e)=>{changeJoinData(e)}}/>
                   </p>
               </td>
             </tr>
             <tr>
-              <td>이메일</td>
+              <td>メールアドレス</td>
               <td><input className='inputmail-size' type='text' name='memEmail' ref={email_1} onChange={(e)=>{changeJoinData(e)}}/>
                   <select className='select-size' name='memEmail' ref={email_2} onChange={(e)=>{changeJoinData(e)}} >
                     <option value={'@naver.com'} >naver.com</option>
@@ -237,7 +237,7 @@ const Join = () => {
         </table>
       <div className='btn-div'><button type='button'   onClick={()=>{
         join()
-        }}>회원가입</button>
+        }}>Join</button>
       </div>
     </div>
     
