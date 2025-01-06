@@ -94,10 +94,10 @@ function App() {
           <div>
             <img className='banner-img' src='http://localhost:8080/images/book_banner.jpg' />
           </div>
-          <div className='title-div'></div>
+          <div className='title-div'>Enjoy a book</div>
         </div>
-        
-      </div>
+              
+        </div>
       <div className='layout-div'>
         <Routes>
 

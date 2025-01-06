@@ -1,9 +1,10 @@
 
 
 .container{
-  width: 100vw;
+  width: 95vw;
   height: 100vh;
   font-size: 17px;
+  margin: auto;
   /* background-color: lightgrey; */
 }
 
