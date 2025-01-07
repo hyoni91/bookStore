@@ -26,7 +26,7 @@ const Modal = ({content, setIsShow, offBtn}) => {
                 //컴포넌트에 따라서 페이지 이동하기(함수)
                 offBtn() // 로그인 페이지로 이동 
                 },300)
-                }}>확인
+                }}>確認
               </button>
           </div>
         </div>
