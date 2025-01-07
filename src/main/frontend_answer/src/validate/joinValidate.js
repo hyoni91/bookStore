@@ -21,10 +21,10 @@ export const joinValidate = (newData, valid_tag,tagName) => {
       const regex_memId = /^[A-Za-z0-9]{4,12}$/ ;
       // test(): 매개변수로 들어온 데이터가 조건에 부합하면 리턴 ture
       if( !regex_memId.test(newData.memId)){
-        sendFeedbackMsg(valid_tag[0],'*아이디는 영문 대소문자/숫자  4~12자까지 가능합니다.', 'error')
+        sendFeedbackMsg(valid_tag[0],'*IDはA-Za-z0-9 /4~12字まで可能です。', 'error')
         resultArr[0] = false;
       }else{
-        sendFeedbackMsg(valid_tag[0],'*사용 가능한 아이디입니다.', 'good')
+        sendFeedbackMsg(valid_tag[0],'*使用可能です。', 'good')
         resultArr[0] = true;
       }
       break;
@@ -32,33 +32,33 @@ export const joinValidate = (newData, valid_tag,tagName) => {
     case 'memPw':
       const regex_memPw = /^[a-z0-9](?=.*[a-z])(?=.*[0-9]).{3,12}$/g;
       if(!regex_memPw.test(newData.memPw)){
-        sendFeedbackMsg(valid_tag[1],'*비밀번호는 영문(소문자)과 숫자로 조합된 4~12자까지 가능합니다.', 'error')
+        sendFeedbackMsg(valid_tag[1],'*パスワードはa-zと0-9を含めた4~12字まで可能です。', 'error')
         resultArr[1] = false;
       }else{
-        sendFeedbackMsg(valid_tag[1],'*사용 가능한 비밀번호 입니다.', 'good')
+        sendFeedbackMsg(valid_tag[1],'*使用可能です。', 'good')
         resultArr[1] = true;
       }
       break;
 
       case 'comfirmPw' :
         if(newData.memPw != newData.comfirmPw){
-          sendFeedbackMsg(valid_tag[4], '*비밀번호가 일치하지 않습니다.', 'error')
+          sendFeedbackMsg(valid_tag[4], '*パスワードが一致しません。', 'error')
           resultArr[2] = false;
         }else{
-          sendFeedbackMsg(valid_tag[4], '*비밀번호가 일치합니다.', 'good')
+          sendFeedbackMsg(valid_tag[4], '*パスワードが一致します。', 'good')
           resultArr[2] = true;
         }
         break;
 
       case 'memName':
       //이름 유효성 검사 : 한글 + 2~10자 정규식 
-      const regex_memName =  /^[ㄱ-ㅎ가-힣]{2,10}$/
+      const regex_memName =  /^[A-Za-z]{2,30}$/
 
       if(!regex_memName.test(newData.memName)){
-        sendFeedbackMsg(valid_tag[2],'*이름은 2~10자까지 한글만 가능합니다.', 'error')
+        sendFeedbackMsg(valid_tag[2],'*名前はA-Za-z /2~30字まで可能です', 'error')
         resultArr[3] = false;
       }else{
-        sendFeedbackMsg(valid_tag[2],'*사용 가능한 이름입니다.', 'good')
+        sendFeedbackMsg(valid_tag[2],'*使用可能です。', 'good')
         resultArr[3] = true;
       }
       break;
@@ -67,10 +67,10 @@ export const joinValidate = (newData, valid_tag,tagName) => {
       // const regex_memTel = /^[0-9]{10,11}$/;
       const regex_memTel = /^\d{3}-\d{3,4}-\d{4}$/;;
       if(!regex_memTel.test(newData.memTel)){
-        sendFeedbackMsg(valid_tag[3], '*연락처는 숫자만 가능합니다.', 'error')
+        sendFeedbackMsg(valid_tag[3], '*数字のみ入力可能です。', 'error')
         resultArr[4] = false;
       }else{
-        sendFeedbackMsg(valid_tag[3], '*사용 가능한 연락처입니다.', 'good')
+        sendFeedbackMsg(valid_tag[3], '*使用可能です。', 'good')
         resultArr[4] = true;
       }
   }

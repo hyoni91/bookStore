@@ -16,7 +16,6 @@ const AdminLayout = () => {
           <li className='dropMenu'>
             <span onClick={()=>{
             if(!isShow){
-              // navigate('/admin/management')
               setIsShow(true)
               setIsShow1(false)
               setIsShow2(false)
@@ -24,66 +23,29 @@ const AdminLayout = () => {
             }else{
               setIsShow(false)
             }
-          }}>상품관리</span>
+          }}>商品管理</span>
             {
               isShow?  
             <div className='dropMenu-content'>
               <ul>
                 <li onClick={()=>{
-                  navigate('/admin/management')
-                  setIsShow(false)
-                }}>상품관리</li>
-                <li onClick={()=>{
                   navigate('/admin/regItem')
                   setIsShow(false)
-                }}>상품등록</li>
+                }}>商品登録</li>
                 <li onClick={()=>{
                   navigate('/admin/category_management')
                   setIsShow(false)
-                }}>카테고리관리</li>
+                }}>カテゴリー管理</li>
               </ul>
             </div>
               :
               null
             }
             
-          </li>  
-          <li>
-            <span onClick={()=>{
-            if(!isShow1){
-              // navigate('/admin/sale_history_month')
-              setIsShow1(true)
-              setIsShow(false)
-              setIsShow2(false)
-              setIsShow3(false)
-            }else{
-              setIsShow1(false)
-            }
-          }}>구매관리</span>
-            {
-              isShow1?  
-
-              <div className='dropMenu-content'>
-                <ul>
-                  <li onClick={()=>{
-                    navigate('/admin/sale_history_month')
-                    setIsShow1(false)
-                  }}>이달의구매내역</li>
-                  <li onClick={()=>{
-                    navigate('/admin/')
-                    setIsShow1(false)
-                  }}>구매정보검색</li>
-                </ul>
-              </div>
-
-              :
-              null
-            }
-            </li>
+          </li> 
           <li>
             <span onClick={()=>{
             if(!isShow2){
-              // navigate('/admin/search_user')
               setIsShow2(true)
               setIsShow1(false)
               setIsShow(false)
@@ -91,7 +53,7 @@ const AdminLayout = () => {
             }else{
               setIsShow2(false)
             }
-          }}>유저관리</span>
+          }}>ユーザー管理</span>
             {
               isShow2?  
               <div className='dropMenu-content'>
@@ -99,15 +61,39 @@ const AdminLayout = () => {
                   <li onClick={()=>{
                     navigate('/admin/search_user')
                     setIsShow2(false)
-                  }}>유저정보관리</li>
-                  {/* <li onClick={()=>{
-                    navigate(`/admin/UserInfo/:mem`)
-                    setIsShow2(false)
-                  }}>유저정보변경</li> */}
+                  }}>ユーザー情報管理</li>
                   <li onClick={()=>{
-                    navigate('/admin')
                     setIsShow2(false)
-                  }}>탈퇴유저관리</li>
+                  }}>解約ユーザー管理</li>
+                </ul>
+              </div>
+
+              :
+              null
+            }
+            </li> 
+          <li>
+            <span onClick={()=>{
+            if(!isShow1){
+              setIsShow1(true)
+              setIsShow(false)
+              setIsShow2(false)
+              setIsShow3(false)
+            }else{
+              setIsShow1(false)
+            }
+          }}>売上管理</span>
+            {
+              isShow1?  
+
+              <div className='dropMenu-content'>
+                <ul>
+                  <li onClick={()=>{
+                    setIsShow1(false)
+                  }}>今月の売上</li>
+                  <li onClick={()=>{
+                    setIsShow1(false)
+                  }}>売上管理</li>
                 </ul>
               </div>
 
@@ -118,7 +104,6 @@ const AdminLayout = () => {
           <li>
             <span onClick={()=>{
             if(!isShow3){
-              // navigate('/admin/record_month')
               setIsShow3(true)
               setIsShow1(false)
               setIsShow2(false)
@@ -126,23 +111,20 @@ const AdminLayout = () => {
             }else{
               setIsShow3(false)
             }
-          }}>매출관리</span>
+          }}>備考</span>
             {
               isShow3?  
               <div className='dropMenu-content'>
                 <ul>
                   <li onClick={()=>{
-                    navigate('/admin/record_month')
                     setIsShow3(false)
-                  }}>이달의매출</li>
+                  }}>備考１</li>
                   <li onClick={()=>{
-                    navigate('/admin')
                     setIsShow3(false)
-                  }}>월별매출</li>
+                  }}>備考２</li>
                   <li onClick={()=>{
-                    navigate('/admin')
                     setIsShow3(false)
-                  }}>카테고리별 매출</li>
+                  }}>備考３</li>
                 </ul>
               </div>
 
