@@ -7,11 +7,13 @@ import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
 @RestController
 @RequestMapping("/api_member")
+@CrossOrigin(origins = "https://www.hyoni.click")
 public class MemberController {
 
 
@@ -38,12 +40,22 @@ public class MemberController {
     public MemberVO login(@RequestBody MemberVO memberVO){
         //로그인 정보 없으면 빈값 (null뜸) --> 리액트는 빈 값
         return memberService.login(memberVO);
+
     }
 
     //아이템 목록
     @GetMapping("/itemList")
     public List<ItemVO> itemList(){
+        List<ItemVO> itemlist = new ArrayList<>();
+
         return memberService.itemList();
+    }
+
+    @GetMapping("/test")
+    public String test(){
+        String introduce = "test";
+        System.out.println("===========================================>TEST");
+        return introduce;
     }
 
 

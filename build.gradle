@@ -24,21 +24,32 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.mariadb.jdbc:mariadb-java-client:3.5.1'
-	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4:1.16' //쿼리 로그 라이브러리 추가
-	compileOnly("org.springframework.boot:spring-boot-devtools") //html새로고침
+//	implementation 'org.mariadb.jdbc:mariadb-java-client:3.5.1'
+//	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4:1.16' //쿼리 로그 라이브러리 추가
+//	compileOnly("org.springframework.boot:spring-boot-devtools") //html새로고침
 //	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	//implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
-	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
+//	implementation 'org.springframework.boot:spring-boot-starter-web'
+//	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+//	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+//	compileOnly 'org.projectlombok:lombok'
+//	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+//	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+//	annotationProcessor 'org.projectlombok:lombok'
+//	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
 //	testImplementation 'org.springframework.security:spring-security-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+//	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	implementation 'org.mariadb.jdbc:mariadb-java-client:3.5.1' // MariaDB JDBC 드라이버
+	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4:1.16' // 쿼리 로그 라이브러리
+	compileOnly 'org.springframework.boot:spring-boot-devtools' // 개발 도구
+	implementation 'org.springframework.boot:spring-boot-starter-web' // Spring Boot 웹 스타터
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3' // MyBatis Spring Boot 스타터
+	compileOnly 'org.projectlombok:lombok' // Lombok
+	annotationProcessor 'org.projectlombok:lombok' // Lombok 어노테이션 처리기
+	testImplementation 'org.springframework.boot:spring-boot-starter-test' // Spring Boot 테스트 스타터
+	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3' // MyBatis 테스트 스타터
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher' // JUnit 런처
 }
 
 tasks.named('test') {
