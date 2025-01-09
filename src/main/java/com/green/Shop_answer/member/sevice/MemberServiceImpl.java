@@ -3,12 +3,13 @@ package com.green.Shop_answer.member.sevice;
 
 import com.green.Shop_answer.item.vo.ItemVO;
 import com.green.Shop_answer.member.vo.MemberVO;
+import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Slf4j
 @Service("memberService")
 public class MemberServiceImpl implements MemberService {
     @Autowired
@@ -23,7 +24,7 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public boolean idChk(String memId) {
        String idChk = sqlSession.selectOne("answerMemberMapper.isDuplicate", memId);
-
+        log.info("Checking if MEM_ID exists: {}", memId);
         return idChk != null;
     }
 

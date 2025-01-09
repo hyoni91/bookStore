@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api_item")
+@CrossOrigin(origins = "https://www.hyoni.click")
 public class ItemController {
 
     @Resource(name = "itemService")

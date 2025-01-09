@@ -93,6 +93,7 @@ function App() {
         <div className='banner'>
           <div>
             <img className='banner-img' src='http://localhost:8080/images/book_banner.jpg' />
+            {/* <img className='banner-img' src="https://www.hyoni.click/images/book_banner.jpg" alt="Banner" /> */}
           </div>
           <div className='title-div'>Enjoy a book</div>
         </div>

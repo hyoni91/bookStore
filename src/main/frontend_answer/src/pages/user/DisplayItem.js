@@ -10,7 +10,7 @@ const DisplayItem = () => {
   console.log(itemList)
 
   useEffect(()=>{
-    axios.get('/api_member/itemList')
+    axios.get('api_member/itemList')
     .then((res)=>{
       setItemList(res.data)
     })
