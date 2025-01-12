@@ -41,6 +41,9 @@ public class AdminController {
                             , @RequestParam("mainImg") MultipartFile mainImg
                             , @RequestParam("subImg") MultipartFile subImg){
 
+        System.out.println("item============================"+itemVO);
+
+
         // 파일 업로드
         //메인이 되는 이미지 첨부 후 첨부된 원본 파일명, 첨부된 파일명을 리턴 받음
         ImgVO mainImgVO = FileUploadUtil.fileUpload(mainImg);

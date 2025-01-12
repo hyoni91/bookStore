@@ -9,6 +9,7 @@ import { joinValidate } from '../../validate/joinValidate';
 
 const Join = () => {
   const navigate = useNavigate()
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   //회원가입 버튼 여부
   const [isDisabled, setIsDisabled] = useState(true)
@@ -110,7 +111,7 @@ const Join = () => {
       return;
     }
    
-    axios.get(`/api_member/idChk/${joinData.memId}`)
+    axios.get(`${apiUrl}/api_member/idChk/${joinData.memId}`)
     .then((res)=>{
       const result = res.data;
       result? alert('すでに使われています。'): alert('使用可能です。') 
@@ -139,7 +140,7 @@ const Join = () => {
     }
 
 
-    axios.post(`/api_member/join`, joinData)
+    axios.post(`${apiUrl}/api_member/join`, joinData)
     .then((res)=>{
       //모달창 띄우기 -> 확인 누르면 로그인페이지 이동
       setIsShow(true)

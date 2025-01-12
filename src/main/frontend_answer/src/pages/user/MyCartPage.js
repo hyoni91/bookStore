@@ -18,8 +18,10 @@ const MyCartPage = () => {
   //총금액
   const [sum, setSum] = useState(0)
 
+  const apiUrl = process.env.REACT_APP_API_URL;
+
   useEffect(()=>{
-  axios.get(`/api_cart/cartList/${memId}`)
+  axios.get(`${apiUrl}/api_cart/cartList/${memId}`)
   .then((res)=>{
     console.log(res.data)
     setMyCart(res.data)
@@ -43,7 +45,7 @@ const MyCartPage = () => {
 
   //선택삭제
 function goDelete(data){
-    axios.delete('/api_cart/cartDelete', {data:cartCode})
+    axios.delete(`${apiUrl}//api_cart/cartDelete`, {data:cartCode})
     .then((res)=>{
       const result = window.confirm('삭제하시겠습니까?')
       if(result){
@@ -58,7 +60,7 @@ function goDelete(data){
 
   //개별삭제
 function goDeleteInt(cartNum){
-  axios.delete(`/api_cart/cartDeleteInt/${cartNum}`)
+  axios.delete(`${apiUrl}//api_cart/cartDeleteInt/${cartNum}`)
   .then(res=>{
     const result = window.confirm('삭제하시겠습니까?')
     if(result){

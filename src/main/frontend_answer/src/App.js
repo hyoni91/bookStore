@@ -77,7 +77,7 @@ function App() {
             }} ><RiLogoutBoxRLine size={'22'} className='logout-icon'/></span>
             {
               loginInfo.memRole == 'ADMIN'?
-              <span onClick={()=>{navigate('/admin/management')}}><MdOutlineManageHistory size={'22'} className='anmin-icon'/></span>
+              <span onClick={()=>{navigate('/admin/regItem')}}><MdOutlineManageHistory size={'22'} className='anmin-icon'/></span>
               :
               <span onClick={()=>{navigate('/my_cart_page')}}><BsCart4 size={'22'}/></span>
             }

@@ -3,9 +3,11 @@ import React, { useEffect, useState } from 'react'
 
 const ItemList = () => {
   const [itemList, setItemList] = useState([])
+  const apiUrl = process.env.REACT_APP_API_URL;
+
 
   useEffect(()=>{
-    axios.get('/api_member/itemList')
+    axios.get(`${apiUrl}/api_member/itemList`)
     .then((res)=>{
       setItemList(res.data)
       console.log(res.data)

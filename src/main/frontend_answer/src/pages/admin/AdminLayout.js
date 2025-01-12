@@ -33,7 +33,7 @@ const AdminLayout = () => {
                   setIsShow(false)
                 }}>商品登録</li>
                 <li onClick={()=>{
-                  navigate('/admin/category_management')
+                  navigate('/admin/regItem')
                   setIsShow(false)
                 }}>カテゴリー管理</li>
               </ul>

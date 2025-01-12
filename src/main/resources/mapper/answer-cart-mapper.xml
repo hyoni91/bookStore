@@ -24,7 +24,7 @@
 
         <!-- 장바구니 수정 -->
         <update id="update">
-            UPDATE answer_shop_cart
+            UPDATE ANSWER_SHOP_CART
             SET CART_CNT = CART_CNT+#{cartCnt}
             ,CART_DATE = NOW()
             WHERE ITEM_CODE = #{itemCode}
@@ -48,7 +48,7 @@
         <!-- 멤버별 장바구니 -->
         <select id="cartList" resultMap="cart">
             SELECT ATTACHED_FILE_NAME, ITEM_NAME , ITEM_PRICE ,CART_CNT, DATE_FORMAT(CART_DATE, '%Y-%m-%d %h:%s') AS CART_DATE, CART_CODE
-            FROM answer_item_img as IMG , answer_shop_item I, ANSWER_SHOP_CART C , answer_shop_member M
+            FROM ANSWER_ITEM_IMG as IMG , ANSWER_SHOP_ITEM I, ANSWER_SHOP_CART C , ANSWER_SHOP_MEMBER M
             WHERE C.MEM_ID = M.MEM_ID
             AND C.ITEM_CODE = I.ITEM_CODE
             AND IMG.ITEM_CODE = C.ITEM_CODE
@@ -58,7 +58,7 @@
 
         <!-- 장바구니 선택삭제 -->
         <delete id="delete">
-            DELETE FROM answer_shop_cart
+            DELETE FROM ANSWER_SHOP_CART
             WHERE CART_CODE IN
             <foreach collection="cartNumList" item="cartCode" open="(" separator="," close=")">
                 #{cartCode}
@@ -66,7 +66,7 @@
         </delete>
     <!-- 장바구니 삭제 -->
     <delete id="delete2">
-        DELETE FROM answer_shop_cart
+        DELETE FROM ANSWER_SHOP_CART
         WHERE CART_CODE = #{cartCode}
     </delete>
 </mapper>

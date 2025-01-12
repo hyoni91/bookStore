@@ -6,9 +6,8 @@ import axios from 'axios'
 
 const Login = ({setLoginInfo, loginInfo}) => {
   const navigate = useNavigate()
-  
+  const apiUrl = process.env.REACT_APP_API_URL;
 
-  
   //모달의 변수 {content, setIsShow, offBtn}전달해야함
   //로그인창 미입력시 모달창 띄우기 (setIsShow)
   const [ loginModal, setLoginModal] = useState(false)
@@ -35,7 +34,7 @@ function handleBtn(){
       navigate('/')
     }else if(loginInfo.memRole == 'ADMIN'){
       //로그인 정보가 관리자라면?
-      navigate('/admin/management')
+      navigate('/admin/regitem')
     }
   }
 }
@@ -62,7 +61,7 @@ function handleBtn(){
       setLoginModal(true)
       return;
     }
-    axios.post('/api_member/login', loginData)
+    axios.post(`${apiUrl}/api_member/login`, loginData)
     .then((res)=>{
       //모달은 성공이든 실패든 모달 띄우기
       setAfterLoginModal(true);

@@ -16,8 +16,11 @@ const SearchUser = () => {
     setOpenModal(!openModal)
   }
 
+  console.log(searchValue)
+  const apiUrl = process.env.REACT_APP_API_URL;
+
   useEffect(()=>{
-    axios.post("/api_admin/selectAllUser",searchValue)
+    axios.post(`${apiUrl}/api_admin/selectAllUser`,searchValue)
     .then((res)=>{
       setAllUser(res.data)
     }).catch((error)=>{
@@ -27,7 +30,7 @@ const SearchUser = () => {
   },[])
 
   function getUserInfo(){
-    axios.post("/api_admin/selectAllUser",searchValue)
+    axios.post(`${apiUrl}/api_admin/selectAllUser`,searchValue)
     .then((res)=>{
       setAllUser(res.data)
     }).catch((error)=>{

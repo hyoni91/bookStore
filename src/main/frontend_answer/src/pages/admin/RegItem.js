@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import Modal from '../common/Modal'
 
 const RegItem = () => {
+  const apiUrl = process.env.REACT_APP_API_URL;
+
   //모달 띄우기
   const [isItemModal, setIsItemModal] = useState(false)
   //category목록
@@ -16,7 +18,7 @@ const RegItem = () => {
     //카테 코드는 1번부터 정렬되도록 설정했기 때문에 초기값은 1번 부터 
     cateCode: 1,
     itemName : '',
-    itemPrice :'',
+    itemPrice :0,
     itemIntro: ''
   })
 
@@ -28,7 +30,7 @@ const RegItem = () => {
 
   
   useEffect(()=>{
-    axios.get('/api_admin/categoryList')
+    axios.get(`${apiUrl}/api_admin/categoryList`)
     .then((res)=>{
       setCategoryList(res.data)
     })
@@ -71,7 +73,7 @@ const RegItem = () => {
     itemFrom.append('mainImg', mainImg)
     itemFrom.append('subImg', subImg)
 
-    axios.post('/api_admin/insertItem', itemFrom, fileConfig) 
+    axios.post(`${apiUrl}/api_admin/insertItem`, itemFrom, fileConfig) 
     .then((res)=>{
       setIsItemModal(true)
     })
