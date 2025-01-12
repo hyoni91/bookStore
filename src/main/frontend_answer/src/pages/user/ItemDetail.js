@@ -6,6 +6,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 const ItemDetail = () => {
   const {itemCode} = useParams();
   const navegate = useNavigate()
+  const apiUrl = process.env.REACT_APP_API_URL;
+
   
   const [bookDetail, setBookDetail] = useState({
     itemCode:'',
@@ -44,7 +46,7 @@ const ItemDetail = () => {
   //이때 state변수가 여러개일 경우 모든 변수에 변수값을 저장할 동안 재랜더링이 일어나지 않는다.
 
   useEffect(()=>{
-    axios.get(`/api_item/itemDetail/${itemCode}`)
+    axios.get(`${apiUrl}/api_item/itemDetail/${itemCode}`)
     .then((res)=>{
       res.data.imgList.forEach((img,i) => {
         if(img.isMain == 'Y'){
@@ -85,7 +87,7 @@ const ItemDetail = () => {
 
   function cartInput(){
     if(window.confirm('장바구니에 담을까요?')){
-      axios.post("/api_cart/cartInsert", cart)
+      axios.post(`${apiUrl}/api_cart/cartInsert`, cart)
       .then((res)=>{
         const result = window.confirm('쇼핑을 계속하겠습니까?')
         

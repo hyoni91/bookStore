@@ -7,9 +7,11 @@ const Cate1 = () => {
   const {cateNum} = useParams()
   const [cate1List, setCate1List] = useState([])
   const [cateName, setCateName] = useState([])
+  const apiUrl = process.env.REACT_APP_API_URL;
+
 
     useEffect(()=>{
-      axios.get('/api_admin/categoryList')
+      axios.get(`${apiUrl}/api_admin/categoryList`)
     .then((res)=>{
       console.log(res.data[0].cateName)
       res.data.map((cate,i)=>{
@@ -24,7 +26,7 @@ const Cate1 = () => {
 
   
   useEffect(()=>{
-    axios.get(`/api_item/cate1List/${cateNum}`)
+    axios.get(`${apiUrl}/api_item/cate1List/${cateNum}`)
     .then((res)=>{
       setCate1List(res.data)
     })

@@ -41,7 +41,7 @@
         , IS_MAIN
         , ATTACHED_FILE_NAME
         , IMG_CODE
-        FROM answer_shop_item I ,  ANSWER_ITEM_CATEGORY C , answer_item_img AS IMG
+        FROM ANSWER_SHOP_ITEM I ,  ANSWER_ITEM_CATEGORY C , ANSWER_ITEM_IMG AS IMG
         WHERE I.CATE_CODE = C.CATE_CODE AND IMG.ITEM_CODE = I.ITEM_CODE
         AND IS_MAIN = 'Y';
 
@@ -57,7 +57,7 @@
             ,IS_MAIN
             ,ATTACHED_FILE_NAME
             ,IMG_CODE
-        FROM answer_shop_item I ,  ANSWER_ITEM_CATEGORY C , answer_item_img AS IMG
+        FROM ANSWER_SHOP_ITEM I ,  ANSWER_ITEM_CATEGORY C , ANSWER_ITEM_IMG AS IMG
         WHERE I.CATE_CODE = C.CATE_CODE AND IMG.ITEM_CODE = I.ITEM_CODE
         AND I.ITEM_CODE = #{itemCode}
     </select>
@@ -73,7 +73,7 @@
         ,IS_MAIN
         ,ATTACHED_FILE_NAME
         ,IMG_CODE
-        FROM answer_shop_item I ,  ANSWER_ITEM_CATEGORY C , answer_item_img IMG
+        FROM ANSWER_SHOP_ITEM I ,  ANSWER_ITEM_CATEGORY C , ANSWER_ITEM_IMG IMG
         WHERE I.CATE_CODE = C.CATE_CODE AND IMG.ITEM_CODE = I.ITEM_CODE
         AND IS_MAIN = 'Y'
         AND C.CATE_CODE = #{cateNum}

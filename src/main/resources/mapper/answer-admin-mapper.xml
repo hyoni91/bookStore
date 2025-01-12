@@ -18,7 +18,7 @@
 
     <!-- 상품등록  -->
     <insert id="insertItem">
-        INSERT INTO answer_shop_item(
+        INSERT INTO ANSWER_SHOP_ITEM(
             ITEM_CODE
             ,ITEM_NAME
             ,ITEM_PRICE

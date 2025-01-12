@@ -9,6 +9,7 @@ const UserInfo = ({memId}) => {
   console.log(memId)
   // const {memId} = useParams()
   const [memberInfo, setMemberInfo] = useState({})
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   
   //모달
@@ -19,7 +20,7 @@ const UserInfo = ({memId}) => {
 
 
   useEffect(()=>{
-    axios.get(`/api_admin/userInfo/${memId}`)
+    axios.get(`${apiUrl}/api_admin/userInfo/${memId}`)
     .then((res)=>{
       console.log(res.data)
       setMemberInfo(res.data)

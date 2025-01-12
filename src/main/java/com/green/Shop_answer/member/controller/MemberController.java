@@ -13,7 +13,6 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/api_member")
-@CrossOrigin(origins = "https://www.hyoni.click")
 public class MemberController {
 
 
@@ -57,7 +56,6 @@ public class MemberController {
         System.out.println("===========================================>TEST");
         return introduce;
     }
-
 
 
 }
