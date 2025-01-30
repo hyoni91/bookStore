@@ -32,7 +32,7 @@ const DisplayItem = () => {
           itemList.map((item,i)=>{
             return(
               <div key={i} className='item-div'>
-                <img onClick={()=>{navigate(`book_detail/${item.itemCode}`)}} src={(`http://localhost:8080/upload/${item.imgList[0].attachedFileName}`)}/>
+                <img onClick={()=>{navigate(`book_detail/${item.itemCode}`)}} src={(`${apiUrl}/upload/${item.imgList[0].attachedFileName}`)}/>
                 {/* <img onClick={()=>{navigate(`book_detail/${item.itemCode}`)}} src={(`${apiUrl}/upload/${item.imgList[0].attachedFileName}`)}/> */}
 
                 <h6>{item.category.cateName}</h6>

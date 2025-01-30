@@ -30,8 +30,13 @@ import UserInfo from './pages/admin/UserInfo';
 function App() {
   const navigate = useNavigate()
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [openMenu, setOpenMenu] = useState(false)
+
+
   //로그인 정보를 담을 state변수 
   const [loginInfo,setLoginInfo] = useState({});
+  
   
   //loginInfo의 state변수는 새로고침을하면 변수 값이 초기화됨
   //새로고침을 하더라도 세션스토리지의 정보는 존재하기때문에, 만약 새로고침을 할 때 로그인 정보가 세션스토리지에 남아 있다면 loginInfo(State변수)에 로그인 정보를 저장 시켜야 한다.
@@ -51,6 +56,10 @@ function App() {
 
       //이때! 문제? 맨 처음엔 빈값이 들어간다. --> useEffect는 모든 그림을 그린 후 실행된다.
     }
+
+    const handleResize = () => setWindowWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
   },[])
 
 
@@ -84,8 +93,30 @@ function App() {
           </div>
           :
           <div>
-            <span onClick={()=>{navigate('loginForm')}}>LOGIN</span>
-            <span onClick={()=>{navigate('join')}}>JOIN</span>
+            {
+              windowWidth <= 480 ? 
+              <>
+                <span><i onClick={()=>{setOpenMenu(!openMenu)}} className="bi bi-list"></i></span>
+                {
+                  openMenu ? 
+                  <div className='dropMenu'>
+                    <ul>
+                      <li onClick={()=>{navigate('loginForm'); setOpenMenu(false)}}>LOGIN</li>
+                      <li onClick={()=>{navigate('join'); setOpenMenu(false)}}>JOIN</li>
+                    </ul>
+                  </div>
+                  :
+                  null
+                }
+              </>
+              
+              :
+              <>
+                <span onClick={()=>{navigate('loginForm')}}>LOGIN</span>
+                <span onClick={()=>{navigate('join')}}>JOIN</span>
+              </>
+            }
+            
           </div>
         }
           

@@ -1,20 +1,22 @@
 
 .item-list-div{
-  /* border: 1px solid black; */
-  width: 89%;
-  margin: 25px auto;
+  width: 90%;
+  margin:  auto;
   display: grid;
-  /* 컬럼의 크기와 개수 */
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(5, minmax(120px,1fr));
+  grid-template-rows: auto;
   gap: 20px;
 }
 
 .item-list-title{
-  width: 89%;
-  margin: 0px auto;
+  width: 90%;
+  margin: 20px auto;
   margin-bottom: 10px;
 }
 
+.item-div > p{
+  font-size: 0.8em;
+}
 
 .item-list-div > .item-div > img{
   width: 100%;
@@ -38,3 +40,76 @@
 .item-list-div > .item-div > p {
   margin-left: 5px;
 }
+
+@media (max-width : 1024px) {
+.item-list-div{
+  grid-template-columns: repeat(4, minmax(100px,1fr));
+  grid-template-rows: auto;
+  gap: 20px;
+}
+
+.item-div h6{
+  font-size: 0.7em;
+}
+
+.item-div h4{
+  font-size: 0.9em;
+}
+
+.item-div p{
+  font-size: 0.75em;
+}
+
+}
+
+@media (max-width : 768px) {
+  .item-list-div{
+    grid-template-columns: repeat(3, minmax(100px,1fr));
+    grid-template-rows: auto;
+    gap: 20px;
+  }
+  
+  .item-div h6{
+    font-size: 0.7em;
+  }
+  
+  .item-div h4{
+    font-size: 0.9em;
+  }
+  
+  .item-div p{
+    font-size: 0.75em;
+  }
+
+  .item-list-title{
+    font-size: 0.9em;
+  }
+  
+  }
+
+
+@media (max-width : 480px) {
+  .item-list-div{
+    grid-template-columns: repeat(2, minmax(100px,1fr));
+    grid-template-rows: auto;
+    gap: 20px;
+  }
+  
+  .item-div h6{
+    font-size: 0.6em;
+  }
+  
+  .item-div h4{
+    font-size: 0.8em;
+  }
+  
+  .item-div p{
+    font-size: 0.65em;
+  }
+
+
+  .item-list-title{
+    font-size: 0.8em;
+  }
+  
+  }

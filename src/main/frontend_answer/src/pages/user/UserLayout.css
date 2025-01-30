@@ -6,7 +6,36 @@
 .header-userpage > ul{
   display: flex;
   justify-content: space-around;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
 }
+
+
+
+@media (max-width : 768px) {
+
+  .header-userpage{
+    padding: 15px;
+    font-size: 0.9em;
+  }
+
+  .header-userpage > ul{
+    justify-content: baseline;
+    gap: 5px;
+  }
+
+
+}
+
+@media (max-width : 480px) {
+
+  .header-userpage{
+    padding: 10px;
+    font-size: 0.9em;
+  }
+
+}
+
 
 
 /* AdminLayout */
@@ -32,7 +61,6 @@
 
 .dropMenu-content > ul{
   text-align: center;
-
 }
 .dropMenu-content li{
   margin-top: 5px;
@@ -44,3 +72,4 @@
   cursor: pointer;
   border-radius: 0.5rem;
 }
+
