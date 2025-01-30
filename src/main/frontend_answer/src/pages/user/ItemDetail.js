@@ -86,10 +86,10 @@ const ItemDetail = () => {
   }
 
   function cartInput(){
-    if(window.confirm('장바구니에 담을까요?')){
+    if(window.confirm('カートに入れますか?')){
       axios.post(`${apiUrl}/api_cart/cartInsert`, cart)
       .then((res)=>{
-        const result = window.confirm('쇼핑을 계속하겠습니까?')
+        const result = window.confirm('ショッピングを続けますか？')
         
         //취소 선택하면 장바구니 목록페이지로 이동
         if(!result){
@@ -107,22 +107,26 @@ const ItemDetail = () => {
     <div>
       <div className='detail-header'>
         <div className='detail-mainimg'>
-          <img src={(`http://localhost:8080/upload/${mainimg}`)}/>
+          <img src={(`${apiUrl}/upload/${mainimg}`)}/>
         </div>
         <div className='detail-intro'>
           <h6>{bookDetail.category.cateName}</h6>
           <h3>{bookDetail.itemName}</h3>
-          <p>{bookDetail.itemPrice.toLocaleString()}원</p>
-          <div>
-            수량
+          <p>{bookDetail.itemPrice.toLocaleString()}円</p>
+          <div className='detail-intro-cnt'>
+            数量
             <input type='number' min={1} max={10}  ref={itemCnt} name='cartCnt' defaultValue={1} onChange={(e)=>{onChangeCnt(e)}}/>
           </div>
-          <div>
-            총가격
-            <p>{(bookDetail.itemPrice*itemCnt.current.value).toLocaleString()}원</p>
+          <div className='detail-intro-price'>
+            総額
+            <p>{(bookDetail.itemPrice*itemCnt.current.value).toLocaleString()}円</p>
           </div>
-          <button type='button'>구매하기</button>
-          <button type='button' onClick={()=>{cartInput(cart)}}>카트담기</button>
+          <div className='detail-btn'>
+            <button type='button'>購入</button>
+            <button type='button' onClick={()=>{cartInput(cart)}}>カート</button>
+          </div>
+          {/* <button type='button'>購入する</button> */}
+          {/* <button type='button' onClick={()=>{cartInput(cart)}}>カートに入れる</button> */}
         </div>
       </div>
       <hr />
@@ -130,7 +134,7 @@ const ItemDetail = () => {
         {/* <h2>상세설명</h2> */}
         <h3>{bookDetail.itemIntro}</h3>
         <div className='detail-footer-img'>
-          <img src={(`http://localhost:8080/upload/${subimg}`)}/>
+          <img src={(`${apiUrl}/upload/${subimg}`)}/>
         </div>
       </div>
     </div>

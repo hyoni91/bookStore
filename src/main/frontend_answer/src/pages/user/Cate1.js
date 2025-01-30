@@ -47,7 +47,7 @@ const Cate1 = () => {
           cate1List.map((item,i)=>{
             return(
               <div key={i} className='item-div'>
-                <img onClick={()=>{navigate(`/book_detail/${item.itemCode}`)}} src={(`http://localhost:8080/upload/${item.imgList[0].attachedFileName}`)}/>
+                <img onClick={()=>{navigate(`/book_detail/${item.itemCode}`)}} src={(`${apiUrl}/upload/${item.imgList[0].attachedFileName}`)}/>
                 <h6>{item.category.cateName}</h6>
                 <h4 onClick={()=>{navigate(`/book_detail/${item.itemCode}`)}}>{item.itemName}</h4>
                 <p>{item.itemPrice.toLocaleString()}원</p>

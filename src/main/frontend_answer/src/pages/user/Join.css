@@ -1,14 +1,4 @@
 
-.joinpage{
-  width: 82%;
-  margin: auto;
-  /* margin-top: 50px; */
-  border-radius: 10px;
-  border: 1px solid rgb(233, 230, 230);
-  padding: 50px 0px;
-  /* background-color: rgb(255, 255, 255); */
-  margin-top: 5%;
-}
 
 .jointable{
   width: 87%;
@@ -19,32 +9,31 @@
   color: rgb(71, 71, 71);
 }
 
+.jointable{
+  font-size: 0.9em;
+}
+
 input{
   width: 86%;
 }
 
 .input-size{
-  /* width: 250px; */
-  width: 40%;
+  width: 50%;
 }
 
 .addr-boxsize  input{
-  /* margin-bottom: 5px; */
   margin-bottom: 0.8vw;
 }
 
 .addr-boxsize > td:nth-child(2) >input{
-  /* width: 200px; */
-  width: 40%;
+  width: 50%;
 }
 
 .inputmail-size{
-  /* width: 200px; */
   width: 44%;
 }
 
 .select-size{
-  /* width: 200px; */
   width: 42%;
   padding: 8px;
   margin-left: 3px;
@@ -58,7 +47,8 @@ input{
 
 .jointable button {
   margin-left: 10px;
-  width: 25%;
+  font-size: 0.8em;
+  width: 30%;
   padding: 7px;
   border: 1px solid rgb(204, 203, 203);
   color: rgb(88, 82, 82);
@@ -76,3 +66,39 @@ input{
   margin-top: 5%;
 }
 
+@media (max-width: 768px){
+  .jointable button{
+    font-size: 0.8em;
+  }
+
+  .jointable{
+    width: 100%;
+    font-size: 0.8em;
+  }
+  .btn-div > button{
+    font-size: 0.9em;
+    width: 60%;
+
+  }
+}
+
+@media (max-width: 500px){
+  .jointable button{
+    font-size: 0.7em;
+    width: 30%;
+  }
+
+  .input-size{
+    width: 50%;
+  }
+
+  .jointable{
+    width: 100%;
+    font-size: 0.7em;
+  }
+
+  .btn-div > button{
+    font-size: 0.8em;
+    width: 60%;
+  }
+}

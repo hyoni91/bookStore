@@ -94,7 +94,7 @@ function handleBtn(){
     <div className='joinpage'>
       <table className='logintable'>
         <colgroup>
-        <col width={'30%'}/>
+        <col width={'20%'}/>
         <col width={'*'}/>
         </colgroup>
         <tbody>

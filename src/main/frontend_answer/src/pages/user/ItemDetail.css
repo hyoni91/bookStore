@@ -1,29 +1,39 @@
 
 .detail-header{
-  margin : 25px 0px;
+  margin : 30px auto;
   display: flex;
-  /* border: 1px solid black; */
   justify-content: center;
 }
 
-.detail-header > div > img {
-  width: 65%;
+.detail-mainimg{
+  width: 30%;
+  text-align: center;
+ 
+}
+
+.detail-mainimg > img {
+  width: 50%;
+  display: inline-block;
   filter: drop-shadow(5px 5px 5px #9b9b9b);
+
 }
 
 .detail-intro{
-  /* margin-top: 85px; */
-  /* border: 1px solid red; */
-  align-self: center;
-  
+  width: 55%;
+  margin: auto;
 }
 
-.detail-intro > button{
+.detail-btn > button{
   width: 150px;
   padding: 8px;
   margin-top: 25px;
   border: 1px solid lightgray;
   margin-right: 15px ;
+}
+
+.detail-btn > button:hover{
+  cursor: pointer;
+  background: rgb(215, 215, 215);
 }
 
 .detail-intro > div {
@@ -38,6 +48,7 @@
 .detail-content > h3{
   margin-top: 30px;
   text-align: center;
+  font-weight: 500;
 }
 
 .detail-mainimg{
@@ -50,3 +61,72 @@
   margin-top: 25px;
 }
 
+.detail-footer-img > img{
+  width: 65vw;
+}
+
+@media (max-width : 480px){
+  .detail-header{
+    margin : 30px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .detail-mainimg{
+    width: 100%;
+ 
+  }
+  
+  .detail-mainimg > img {
+    width: 60%;
+    display: inline-block;
+    filter: drop-shadow(5px 5px 5px #9b9b9b);  
+  }
+  
+  .detail-intro{
+    width: 60%;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .detail-intro > h6,
+  .detail-intro > h3,
+  .detail-intro > p{
+    margin-bottom: 5px;
+  }
+
+  .detail-intro > p{
+    margin-bottom: 35px;
+  }
+
+  .detail-intro-price{
+    text-align: left;
+    padding-left: 8vw;
+  }
+
+  .detail-intro-price p{
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  .detail-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .detail-btn > button{
+    margin: auto;
+    padding: 5px;
+    font-size: 1em;
+  }
+
+  .detail-content img{
+    width: 75vw;
+  }
+
+}

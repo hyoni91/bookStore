@@ -160,7 +160,7 @@ const handleCheck = (index,e) => {
                   <td className='carttd'>
                   <img 
                     className='cartimg' 
-                    src={(`http://localhost:8080/upload/${cart.item.imgList[0].attachedFileName}`)}
+                    src={(`${apiUrl}/upload/${cart.item.imgList[0].attachedFileName}`)}
                   />
                     <span>{cart.item.itemName}</span>
                   </td>
