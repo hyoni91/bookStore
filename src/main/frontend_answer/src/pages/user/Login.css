@@ -1,6 +1,6 @@
 
 .joinpage{
-  width: 70%;
+  width: 80%;
   margin: auto;
   margin-top: 55px;
   border-radius: 10px;
@@ -10,11 +10,11 @@
 
 .logintable{
   margin-top: 50px;
-  width: 80%;
+  width: 60%;
 }
 
 .logintable input{
-  width: 90%;  
+  width: 85%;  
 }
 
 .loginbtn-div{
@@ -26,8 +26,8 @@
 .login-btn{
   font-size: 18px;
   border: 1px solid lightgrey;
-  padding: 11px;
-  width: 60%;
+  padding: 12px;
+  width: 50%;
 }
 
 
@@ -41,12 +41,12 @@
 
 .logintable{
   margin-top: 30px;
-  width: 90%;
+  width: 80%;
 }
 
 
 .logintable input{
-  width: 85%;  
+  width: 82%;  
 }
 
 .loginbtn-div{
@@ -58,7 +58,7 @@
   font-size: 18px;
   border: 1px solid lightgrey;
   padding: 11px;
-  width: 80%;
+  width: 55%;
 }
   
 }
@@ -72,7 +72,7 @@
 
   .logintable{
     margin-top: 10px;
-    width: 90%;
+    width: 80%;
   }
   
   
@@ -89,7 +89,7 @@
     font-size: 18px;
     border: 1px solid lightgrey;
     padding: 11px;
-    width: 70%;
+    width: 60%;
   }
     
   }

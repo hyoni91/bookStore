@@ -172,47 +172,47 @@ const Join = () => {
       }
       
         <table className='jointable'>
-          <colgroup>
-            <col width={'35%'}/>
+          {/* <colgroup>
+            <col width={'28%'}/>
             <col width={'*'}/>
-          </colgroup>
+          </colgroup> */}
           <tbody>
             <tr>
-              <td>ID</td>
+              {/* <td>ID</td> */}
               <td>
-                <input className='input-size' type='text' id='id' name='memId'  required onChange={(e)=>{setIsChkId(false)
+                <input className='input-size' type='text' id='id' name='memId' placeholder='ID' required onChange={(e)=>{setIsChkId(false)
                   changeJoinData(e)}}/>
               <button type='button' onClick={()=>{idChkBtn()}}>チェック</button>
               <div className='feedback' ref={memId_valid_tag} ></div>
               </td>
             </tr>
             <tr>
-              <td>PW</td>
-              <td><input type='password'  required name='memPw' onChange={(e)=>{changeJoinData(e)}}/>
+              {/* <td>PW</td> */}
+              <td><input type='password'  required name='memPw' placeholder='PW' onChange={(e)=>{changeJoinData(e)}}/>
               <div className='feedback' ref={memPw_valid_tag}  ></div>
               </td>
             </tr>
             <tr>
-              <td>PW(チェック用)</td>
-              <td><input type='password'  required name='comfirmPw' onChange={(e)=>{changeJoinData(e)}}/>
+              {/* <td>PW(チェック用)</td> */}
+              <td><input type='password'  required name='comfirmPw' placeholder='PW(チェック用)' onChange={(e)=>{changeJoinData(e)}}/>
               <div className='feedback' ref={confirmPw_valid_tag}  ></div>
               </td>
             </tr>
             <tr>
-              <td>名前</td>
+              {/* <td>名前</td> */}
               <td>
-                <input type='text'  required name='memName'onChange={(e)=>{changeJoinData(e)}}/>
+                <input type='text'  required name='memName' placeholder='名前' onChange={(e)=>{changeJoinData(e)}}/>
                 <div className='feedback' ref={memName_valid_tag} ></div>
               </td>
             </tr>
             <tr>
-              <td>携帯電話</td>
-              <td><input type='text'  name='memTel' placeholder='"-"と一緒に入力してください。' onChange={(e)=>{changeJoinData(e)}}/>
+              {/* <td>携帯電話</td> */}
+              <td><input type='text'  name='memTel' placeholder='電話番号は"-"と一緒に入力してください。' onChange={(e)=>{changeJoinData(e)}}/>
               <div className='feedback'  ref={memTel_valid_tag}  ></div>
               </td>
             </tr>
             <tr className='addr-boxsize'>
-              <td>住所</td>
+              {/* <td>住所</td> */}
               <td>
                 <input type='text' placeholder='郵便番号' name='post'  value={joinData.post} readOnly={true} onChange={(e)=>{changeJoinData(e)}} onClick={handleClick} />
               <button type='button' onClick={handleClick}>検索</button>
@@ -225,8 +225,8 @@ const Join = () => {
               </td>
             </tr>
             <tr>
-              <td>メールアドレス</td>
-              <td><input className='inputmail-size' type='text' name='memEmail' ref={email_1} onChange={(e)=>{changeJoinData(e)}}/>
+              {/* <td>メールアドレス</td> */}
+              <td><input className='inputmail-size' type='text' name='memEmail' placeholder='メールアドレス' ref={email_1} onChange={(e)=>{changeJoinData(e)}}/>
                   <select className='select-size' name='memEmail' ref={email_2} onChange={(e)=>{changeJoinData(e)}} >
                     <option value={'@naver.com'} >naver.com</option>
                     <option value={'@gmail.com'}>gamail.com</option>
