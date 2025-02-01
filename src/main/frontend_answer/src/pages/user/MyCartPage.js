@@ -20,36 +20,36 @@ const MyCartPage = () => {
 
   const apiUrl = process.env.REACT_APP_API_URL;
 
+  function fetchCartData() {
+    axios.get(`${apiUrl}/api_cart/cartList/${memId}`)
+      .then((res)=>{
+        setMyCart(res.data);
+        let price = 0;
+        res.data.forEach((item) => {
+          price += item.item.itemPrice * item.cartCnt;
+        });
+        // 체크박스 초기화: 길이만큼 false로 채움
+        const chkarr = new Array(res.data.length).fill(false);
+        setChks(chkarr);
+        setSum(price);
+      })
+      .catch((error)=>{
+        console.error(error);
+      });
+  }
+
   useEffect(()=>{
-  axios.get(`${apiUrl}/api_cart/cartList/${memId}`)
-  .then((res)=>{
-    console.log(res.data)
-    setMyCart(res.data)
-    let price = 0
-    console.log(res.data)
-    res.data.forEach((e,i)=>{
-      price = price + e.item.itemPrice*e.cartCnt
-    })
-
-    //조회한 개수만큼 chk 배열에 true 저장
-    //조회된 자바구니 목록만큼 체크박스의 값을 설정
-    let chkarr = new Array(res.data.length)
-    //한번에 같은 값 넣기
-    chkarr.fill(false)
-    setChks(chkarr)
-    setSum(price)
-  })
-  .catch(()=>{})
+      fetchCartData()
   },[])
-
 
   //선택삭제
 function goDelete(data){
-    axios.delete(`${apiUrl}//api_cart/cartDelete`, {data:cartCode})
+    axios.delete(`${apiUrl}/api_cart/cartDelete`, {data:cartCode})
     .then((res)=>{
       const result = window.confirm('삭제하시겠습니까?')
       if(result){
       alert('삭제되었습니다.')
+        fetchCartData()
       }
     })
     .catch((error)=>{
@@ -60,11 +60,12 @@ function goDelete(data){
 
   //개별삭제
 function goDeleteInt(cartNum){
-  axios.delete(`${apiUrl}//api_cart/cartDeleteInt/${cartNum}`)
+  axios.delete(`${apiUrl}/api_cart/cartDeleteInt/${cartNum}`)
   .then(res=>{
     const result = window.confirm('삭제하시겠습니까?')
     if(result){
       alert('삭제되었습니다.')
+      fetchCartData()
     }
   })
   .catch(error=>
@@ -105,18 +106,18 @@ const handleCheck = (index,e) => {
 
   return (
     <div className='cartpage'>
-      <h4>나의 장바구니</h4>
+      <h4>My Cart</h4>
       <div className='cart-content'>
         <table className='cart-table'>
           <colgroup>
-            <col width={'3%'}/>
-            <col width={'3%'}/>
+            <col width={'2%'}/>
+            <col width={'2%'}/>
             <col width={'*'}/>
             <col width={'10%'}/>
-            <col width={'8%'}/>
+            <col width={'4%'}/>
             <col width={'15%'}/>
-            <col width={'18%'}/>
-            <col width={'15%'}/>
+            <col width={'17%'}/>
+            <col width={'13%'}/>
           </colgroup>
           <thead>
             <tr>
@@ -128,11 +129,11 @@ const handleCheck = (index,e) => {
                   checked={chkAll}
                   onChange={()=>{handleCheckAll()}}/>
               </td>
-              <td>상품 정보</td>
-              <td>가격</td>
-              <td>수량</td>
-              <td>구매가격</td>
-              <td>구매일시</td>
+              <td>商品情報</td>
+              <td>値段</td>
+              <td>数量</td>
+              <td>総額</td>
+              <td>購入日</td>
               <td></td>
             </tr>
           </thead>
@@ -140,7 +141,7 @@ const handleCheck = (index,e) => {
             {
               myCart.length == 0 ?
               <tr>
-                <td colSpan={'8'}>현재 등록 된 상품이 없습니다.</td>
+                <td colSpan={'8'}>現在カートに商品がございません。</td>
               </tr>
               :
               myCart.map((cart,i)=>{
@@ -164,12 +165,12 @@ const handleCheck = (index,e) => {
                   />
                     <span>{cart.item.itemName}</span>
                   </td>
-                  <td>{cart.item.itemPrice.toLocaleString()}원</td>
+                  <td>{cart.item.itemPrice.toLocaleString()}円</td>
                   <td><input type='number' value={cart.cartCnt}/></td>
-                  <td>{(cart.item.itemPrice*cart.cartCnt).toLocaleString()}원
+                  <td>{(cart.item.itemPrice*cart.cartCnt).toLocaleString()}円
                     </td>
                   <td>{cart.cartDate}</td>
-                  <td><button  className='delete-btn' type='button'onClick={()=>{goDeleteInt(cart.cartCode)}} >삭제</button></td>
+                  <td><button  className='delete-btn' type='button'onClick={()=>{goDeleteInt(cart.cartCode)}} >削除</button></td>
                 </tr>
                 )
               })
@@ -177,12 +178,12 @@ const handleCheck = (index,e) => {
           </tbody>
         </table>
         <div className='cartPrice'>
-          <h5>총 금액</h5>
-          <p>{sum.toLocaleString()}원</p>
-          </div>
+          <h5>総額</h5>
+          <p>{sum.toLocaleString()}円</p>
+        </div>
         <div className='cart-btn'>
-          <button type='button' onClick={()=>{goDelete()}}>선택삭제</button>
-          <button>선택구매</button>
+          <button type='button' onClick={()=>{goDelete()}}>削除</button>
+          <button>購入</button>
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@
         <!-- 장바구니 등록 여부 -->
         <select id="checkCart" resultType="Integer">
             SELECT CART_CODE
-            FROM answer_shop_cart
+            FROM ANSWER_SHOP_CART
             WHERE ITEM_CODE = #{itemCode}
             AND MEM_ID = #{memId}
         </select>

@@ -1,13 +1,20 @@
 
-.cart-content{
+.cartpage{
   width: 90%;
-  margin:18px auto;
+  margin:20px auto;
+  margin-bottom: 10px;
+}
+
+
+.cart-content{
+  margin-top: 10px;
   font-size: 1rem;
+  width: 100%;
 }
 
 .cart-table{
   text-align: center;
-  width: 100%;
+  width: 95%;
 }
 
 .cart-table > thead{
@@ -21,6 +28,7 @@
 
 .cart-table tr{
   border-bottom: 1px solid lightgray;
+  vertical-align: middle;
 }
 
 .cart-table > tbody tr:nth-child(even){
@@ -43,6 +51,7 @@
 }
 
 .cartPrice{
+  width: 90%;
   text-align: right;
   margin-bottom: 50px;
 }
@@ -57,6 +66,7 @@
 
 .cart-btn{
   text-align: center;
+  width: 95%;
 }
 .cart-btn > button{
   margin: 5px 5px;
@@ -75,10 +85,74 @@
   width: 50px;
 }
 
-/* .cart-table  tr {
+
+
+@media (max-width : 1125px) {
+
+.cartimg{
+  width:50px;
+}
+
+.carttd{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
-  width: 1200px;
-} */
+  gap: 8px;
+}
+
+  
+  }
+  
+  @media (max-width : 768px) {
+
+    .cartpage{
+      width: 100%;
+      font-size: 0.9em;
+    }
+
+    .cart-table{
+     font-size: 0.75em;
+    }
+
+    .delete-btn{
+      width: 60px;
+      font-size: 0.8em;
+    }
+
+    .cartPrice{
+      width: 100%;
+      font-size: 0.8em;
+    }
+   
+    }
+  
+  
+  @media (max-width : 480px) {
+
+  .cart-table th:nth-child(2), 
+  .cart-table td:nth-child(2),
+  .cart-table th:nth-child(4), 
+  .cart-table td:nth-child(4), 
+  .cart-table th:nth-child(7), 
+  .cart-table td:nth-child(7)  
+  {
+    display: none;
+  }
+
+    .cart-content{
+      margin: auto;
+    }
+    .delete-btn{
+      width: 50px;
+    }
+    
+    .cart-btn > button{
+      margin: 5px;
+      padding: 7px;
+      width: 60px;
+      border: 1px solid lightgrey;
+    }
+    
+    
+    }

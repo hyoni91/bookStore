@@ -67,7 +67,7 @@ const ItemDetail = () => {
   const loginInfo = JSON.parse(window.sessionStorage.getItem('loginInfo'))
   //cart에 관한 변수와 함수
   //사실장 useRef는 필요가 없음
-  const itemCnt = useRef(1);
+  // const itemCnt = useRef(1);
   const [cart, setCart] = useState(
     {
       cartCnt : 1,
@@ -115,11 +115,11 @@ const ItemDetail = () => {
           <p>{bookDetail.itemPrice.toLocaleString()}円</p>
           <div className='detail-intro-cnt'>
             数量
-            <input type='number' min={1} max={10}  ref={itemCnt} name='cartCnt' defaultValue={1} onChange={(e)=>{onChangeCnt(e)}}/>
+            <input type='number' min={1} max={10} name='cartCnt' defaultValue={1} onChange={(e)=>{onChangeCnt(e)}}/>
           </div>
           <div className='detail-intro-price'>
             総額
-            <p>{(bookDetail.itemPrice*itemCnt.current.value).toLocaleString()}円</p>
+            <p>{(bookDetail.itemPrice*cart.cartCnt).toLocaleString()}円</p>
           </div>
           <div className='detail-btn'>
             <button type='button'>購入</button>
