@@ -36,5 +36,5 @@
 - **Delete (削除)**: 本をカートから削除
 
 ## WebSite
-
+現在停止中
 [bookstoreにアクセス](https://www.hyoni.click/)
